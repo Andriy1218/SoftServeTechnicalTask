@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using SSTest2.DBContext;
 using SSTest2.Model;
 
@@ -23,9 +24,14 @@ namespace SSTest2.Controllers
         [HttpGet("{countryId}")]
         public async Task<IActionResult> GetCountryById(int countryId)
         {
+            //ToDo: Add useful logging to all controllers/actions
+            Log.Information($"Someone requested country with id={countryId}");
             var country = await context.Countries.FirstOrDefaultAsync(x => x.Id == countryId);
             if (country == null)
+            {
+                Log.Warning($"Country with id={countryId} wasn't found!");
                 return NotFound();
+            }
 
             return Ok(country);
         }
