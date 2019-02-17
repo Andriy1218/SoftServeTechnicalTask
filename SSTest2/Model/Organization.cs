@@ -19,6 +19,7 @@ namespace SSTest2.Model
 
     public enum OrganizationType
     {
+        [Display(Name = "General Partnership")]
         GeneralPartnership,
         LimitedPartnerships,
         LimitedLiabilityCompany,

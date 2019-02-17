@@ -20,6 +20,14 @@ namespace SSTest2.Controllers
             this.context = context;
         }
 
+        // ToDo: Add xml documentation to all controllers/actions
+        /// <summary>
+        /// Get organization by id
+        /// </summary>
+        /// <param name="organizationId">id of organization which you want to get</param>
+        /// <returns>organization model with all sub-items (countries, etc)</returns>
+        /// <response code="200">All is good</response>
+        /// <response code="404">Organization with such id wasn't found</response>
         [HttpGet("{organizationId}")]
         public async Task<IActionResult> GetOrganizationById(int organizationId)
         {
@@ -30,6 +38,11 @@ namespace SSTest2.Controllers
             return Ok(organization);
         }
 
+        /// <summary>
+        /// Create new organization
+        /// </summary>
+        /// <param name="organization"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> CreateOrganization(Organization organization)
         {
