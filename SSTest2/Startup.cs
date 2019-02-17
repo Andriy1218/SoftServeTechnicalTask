@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SSTest2.DBContext;
+using SSTest2.Validators;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace SSTest2
@@ -42,7 +44,9 @@ namespace SSTest2
                 var xmlPath = Path.Combine(basePath, @"obj\Debug\netcoreapp2.2\SSTest2.xml");
                 options.IncludeXmlComments(xmlPath);
             });
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc()
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<OrganizationValidator>())
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
         }
 
