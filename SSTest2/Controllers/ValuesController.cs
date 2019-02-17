@@ -3,43 +3,62 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SSTest2.DBContext;
+using SSTest2.Model;
 
 namespace SSTest2.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("/api/organizations")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class OrganizationController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        private readonly ApplicationContext context;
+
+        public OrganizationController(ApplicationContext context)
         {
-            return new string[] { "value1", "value2" };
+            this.context = context;
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("{organizationId}")]
+        public async Task<IActionResult> GetOrganizationById(int organizationId)
         {
-            return "value";
+            var organization = await context.Organizations.Include(p => p.Countries).FirstOrDefaultAsync(x => x.Id == organizationId);
+            if (organization == null)
+                return NotFound();
+
+            return Ok(organization);
         }
 
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> CreateOrganization(Organization organization)
         {
+            context.Organizations.Add(organization);
+            await context.SaveChangesAsync();
+
+            return Accepted(organization);
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("{organizationId}")]
+        public async Task<IActionResult> UpdateOrganization(Organization organization)
         {
+            context.Organizations.Update(organization);
+            await context.SaveChangesAsync();
+
+            return Accepted(organization);
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{organizationId}")]
+        public async Task<IActionResult> DeleteOrganizationById(int organizationId)
         {
+            var organization = await context.Organizations.FirstOrDefaultAsync(x => x.Id == organizationId);
+            if (organization == null)
+                return NotFound();
+
+            context.Organizations.Remove(organization);
+            await context.SaveChangesAsync();
+
+            return Accepted();
         }
     }
 }
