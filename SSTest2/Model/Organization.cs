@@ -11,15 +11,23 @@ namespace SSTest2.Model
         public string Name { get; set; }
         public string Code { get; set; }
         public OrganizationType OrganizationType { get; set; }
-        public string User { get; set; }
+        public string Owner { get; set; }
 
-        public List<Country> Countries { get; set; }
+        public List<Country> Countries { get; private set; }
+
+        public Organization(string name, string code, OrganizationType organizationType, string owner)
+        {
+            Name = name;
+            Code = code;
+            OrganizationType = organizationType;
+            Owner = owner;
+            Countries = new List<Country>();
+        }
     }
 
 
     public enum OrganizationType
     {
-        [Display(Name = "General Partnership")]
         GeneralPartnership,
         LimitedPartnerships,
         LimitedLiabilityCompany,

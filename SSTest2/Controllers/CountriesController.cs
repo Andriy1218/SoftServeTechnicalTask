@@ -21,6 +21,18 @@ namespace SSTest2.Controllers
             this.context = context;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Test(int countryId)
+        {
+            Organization organization = new Organization("TestOrganization2", "Org2", OrganizationType.IncorporatedCompany, "Owner2");
+            context.Organizations.Add(organization);
+            context.SaveChanges();
+            Country country = new Country("USA", "US", 1);
+            context.Countries.Add(country);
+            context.SaveChanges();
+            return Ok(organization);
+        }
+
         [HttpGet("{countryId}")]
         public async Task<IActionResult> GetCountryById(int countryId)
         {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SSTest2.Model
 {
@@ -9,8 +10,17 @@ namespace SSTest2.Model
         public string Code { get; set; }
 
         public int OrganizationId { get; set; }
+        public Organization Organization { get; set; }
 
-        //public List<Business> Businesses { get; set; }
+        public List<Business> Businesses { get; }
+
+        public Country(string name, string code, int organizationId)
+        {
+            Name = name;
+            Code = code;
+            OrganizationId = organizationId;
+            Businesses = new List<Business>();
+        }
 
     }
 }

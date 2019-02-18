@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SSTest2.Model;
@@ -24,15 +25,69 @@ namespace SSTest2.DBContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // ToDo: Add IsRequired to all models
+            modelBuilder.Entity<Organization>().HasKey(x => x.Id);
+            modelBuilder.Entity<Organization>().HasAlternateKey(x => x.Name);
             modelBuilder.Entity<Organization>().Property(x => x.Name).IsRequired();
             modelBuilder.Entity<Organization>().Property(x => x.Code).IsRequired();
-            modelBuilder.Entity<Organization>().Property(x => x.User).IsRequired();
+            modelBuilder.Entity<Organization>().Property(x => x.Owner).IsRequired();
+            modelBuilder.Entity<Organization>().Property(x => x.OrganizationType).IsRequired();
 
-            // ToDo: Add unique constraints to all models
+            modelBuilder.Entity<Country>().HasKey(x => x.Id);
+            modelBuilder.Entity<Country>().HasOne(x => x.Organization)
+                .WithMany(o => o.Countries)
+                .HasForeignKey(c => c.OrganizationId);
+            modelBuilder.Entity<Country>().Property(x => x.Name).IsRequired();
+            modelBuilder.Entity<Country>().Property(x => x.Code).IsRequired();
+            modelBuilder.Entity<Country>().Property(x => x.OrganizationId).IsRequired();
+
+            modelBuilder.Entity<Business>().HasKey(x => x.Id);
+            modelBuilder.Entity<Business>().HasOne(x => x.Country)
+                .WithMany(c => c.Businesses)
+                .HasForeignKey(b => b.CountryId);
+            modelBuilder.Entity<Business>().Property(x => x.Name).IsRequired();
+            modelBuilder.Entity<Business>().Property(x => x.CountryId).IsRequired();
+            
+            modelBuilder.Entity<Family>().HasKey(x => x.Id);
+            modelBuilder.Entity<Family>().HasOne(x => x.Business)
+                .WithMany(b => b.Families)
+                .HasForeignKey(f => f.BusinessId);
+            modelBuilder.Entity<Family>().Property(x => x.Name).IsRequired();
+            modelBuilder.Entity<Family>().Property(x => x.BusinessId).IsRequired();
+
+            modelBuilder.Entity<Offering>().HasKey(x => x.Id);
+            modelBuilder.Entity<Offering>().HasOne(x => x.Family)
+                .WithMany(f => f.Offerings)
+                .HasForeignKey(o => o.FamilyId);
+            modelBuilder.Entity<Offering>().Property(x => x.Name).IsRequired();
+            modelBuilder.Entity<Offering>().Property(x => x.FamilyId).IsRequired();
+
+            modelBuilder.Entity<Department>().HasKey(x => x.Id);
+            modelBuilder.Entity<Department>().HasOne(x => x.Offering)
+                .WithMany(o => o.Departments)
+                .HasForeignKey(d => d.OfferingId);
+            modelBuilder.Entity<Department>().Property(x => x.Name).IsRequired();
+            modelBuilder.Entity<Department>().Property(x => x.OfferingId).IsRequired();
+
             modelBuilder.Entity<Country>()
                 .HasIndex(p => new { p.Name, p.OrganizationId })
                 .IsUnique();
+
+            modelBuilder.Entity<Business>()
+                .HasIndex(x => new { x.Name, x.CountryId })
+                .IsUnique();
+
+            modelBuilder.Entity<Family>()
+                .HasIndex(x => new {x.Name, x.BusinessId})
+                .IsUnique();
+
+            modelBuilder.Entity<Offering>()
+                .HasIndex(x => new {x.Name, x.FamilyId})
+                .IsUnique();
+
+            modelBuilder.Entity<Department>()
+                .HasIndex(x => new {x.Name, x.OfferingId})
+                .IsUnique();
+
         }
     }
 }
