@@ -16,12 +16,15 @@ namespace SoftServeTechnicalTask
     {
         public static void Main(string[] args)
         {
-            //ToDo: Add loading log settings from appsetting.json
+            var configuration = new ConfigurationBuilder()
+                .AddJsonFile(Path.Combine(Directory.GetCurrentDirectory(), "serilogsettings.json"))
+                .Build();
+
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Verbose()
-                .Enrich.FromLogContext()
-                .WriteTo.Console()
+                .ReadFrom.Configuration(configuration)
                 .CreateLogger();
+
+            Log.Information("Starting web host!");
 
             CreateWebHostBuilder(args).Build().Run();
         }
