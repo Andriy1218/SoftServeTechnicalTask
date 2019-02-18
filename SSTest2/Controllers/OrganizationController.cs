@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SSTest2.DBContext;
-using SSTest2.Model;
+using SoftServeTechnicalTask.DBContext;
+using SoftServeTechnicalTask.Model;
 
-namespace SSTest2.Controllers
+namespace SoftServeTechnicalTask.Controllers
 {
     [Route("/api/organizations")]
     [ApiController]

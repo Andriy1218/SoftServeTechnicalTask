@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SSTest2.Model
+namespace SoftServeTechnicalTask.Model
 {
     public class Country
     {

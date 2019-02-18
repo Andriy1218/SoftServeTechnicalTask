@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
 
-namespace SSTest2
+namespace SoftServeTechnicalTask
 {
     public class Program
     {

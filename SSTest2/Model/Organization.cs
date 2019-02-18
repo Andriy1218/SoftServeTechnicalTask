@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Newtonsoft.Json.Converters;
 
-namespace SSTest2.Model
+namespace SoftServeTechnicalTask.Model
 {
     public class Organization
     {

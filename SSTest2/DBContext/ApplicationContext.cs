@@ -4,10 +4,10 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SSTest2.Model;
+using SoftServeTechnicalTask.Model;
 
 
-namespace SSTest2.DBContext
+namespace SoftServeTechnicalTask.DBContext
 {
     public sealed class ApplicationContext : DbContext
     {

@@ -13,11 +13,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using SSTest2.DBContext;
-using SSTest2.Validators;
+using SoftServeTechnicalTask.DBContext;
+using SoftServeTechnicalTask.Validators;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace SSTest2
+namespace SoftServeTechnicalTask
 {
     public class Startup
     {
@@ -41,7 +41,7 @@ namespace SSTest2
             services.ConfigureSwaggerGen(options =>
             {
                 var basePath = Directory.GetCurrentDirectory();
-                var xmlPath = Path.Combine(basePath, @"obj\Debug\netcoreapp2.2\SSTest2.xml");
+                var xmlPath = Path.Combine(basePath, @"obj\Debug\netcoreapp2.2\SoftServeTechnicalTask.xml");
                 options.IncludeXmlComments(xmlPath);
             });
             services.AddMvc()

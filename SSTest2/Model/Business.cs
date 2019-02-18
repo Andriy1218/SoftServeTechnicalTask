@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SSTest2.Model
+namespace SoftServeTechnicalTask.Model
 {
     public class Business
     {

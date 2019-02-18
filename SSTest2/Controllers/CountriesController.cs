@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
-using SSTest2.DBContext;
-using SSTest2.Model;
+using SoftServeTechnicalTask.DBContext;
+using SoftServeTechnicalTask.Model;
 
-namespace SSTest2.Controllers
+namespace SoftServeTechnicalTask.Controllers
 {
     [Route("/api/countries")]
     [ApiController]
@@ -24,10 +24,10 @@ namespace SSTest2.Controllers
         [HttpGet]
         public async Task<IActionResult> Test(int countryId)
         {
-            Organization organization = new Organization("TestOrganization2", "Org2", OrganizationType.IncorporatedCompany, "Owner2");
+            Organization organization = new Organization("TestOrganization5", "Org5", OrganizationType.GeneralPartnership, "Owner4");
             context.Organizations.Add(organization);
             context.SaveChanges();
-            Country country = new Country("USA", "US", 1);
+            Country country = new Country("Denmark", "DK", 2);
             context.Countries.Add(country);
             context.SaveChanges();
             return Ok(organization);

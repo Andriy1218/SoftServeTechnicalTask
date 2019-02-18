@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "SSTest2": {
+    "SoftServeTechnicalTask": {
       "commandName": "Project",
       "launchUrl": "api/values",
       "environmentVariables": {

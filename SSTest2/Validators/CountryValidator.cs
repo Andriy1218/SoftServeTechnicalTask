@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentValidation;
-using SSTest2.Model;
+using SoftServeTechnicalTask.Model;
 
-namespace SSTest2.Validators
+namespace SoftServeTechnicalTask.Validators
 {
     public class CountryValidator : AbstractValidator<Country>
     {
