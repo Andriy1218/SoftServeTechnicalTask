@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace SoftServeTechnicalTask.Model
 {
@@ -11,6 +12,7 @@ namespace SoftServeTechnicalTask.Model
         public string Name { get; set; }
 
         public int OfferingId { get; set; }
+        [JsonIgnore]
         public Offering Offering { get; set; }
 
         public Department(string name, int offeringId)

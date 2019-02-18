@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json;
 
 namespace SoftServeTechnicalTask.Model
 {
@@ -10,6 +11,7 @@ namespace SoftServeTechnicalTask.Model
         public string Code { get; set; }
 
         public int OrganizationId { get; set; }
+        [JsonIgnore]
         public Organization Organization { get; set; }
 
         public List<Business> Businesses { get; }

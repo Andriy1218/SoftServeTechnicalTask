@@ -10,13 +10,13 @@ using SoftServeTechnicalTask.Model;
 
 namespace SoftServeTechnicalTask.Controllers
 {
-    [Route("/api/countries")]
+    [Route("/api/country")]
     [ApiController]
-    public class CountriesController : ControllerBase
+    public class CountryController : ControllerBase
     {
         private readonly ApplicationContext context;
 
-        public CountriesController(ApplicationContext context)
+        public CountryController(ApplicationContext context)
         {
             this.context = context;
         }
@@ -39,13 +39,12 @@ namespace SoftServeTechnicalTask.Controllers
             //ToDo: Add useful logging to all controllers/actions
             Log.Information($"Someone requested country with id={countryId}");
             var country = await context.Countries.FirstOrDefaultAsync(x => x.Id == countryId);
-            if (country == null)
-            {
-                Log.Warning($"Country with id={countryId} wasn't found!");
-                return NotFound();
-            }
+            if (country != null)
+                return Ok(country);
 
-            return Ok(country);
+            Log.Warning($"Country with id={countryId} wasn't found!");
+            return NotFound();
+
         }
 
         [HttpPost]

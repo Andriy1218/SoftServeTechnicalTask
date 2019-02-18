@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace SoftServeTechnicalTask.Model
 {
@@ -8,6 +9,7 @@ namespace SoftServeTechnicalTask.Model
         public string Name { get; set; }
 
         public int CountryId { get; set; }
+        [JsonIgnore]
         public Country Country { get; set; }
 
         public List<Family> Families { get; }
