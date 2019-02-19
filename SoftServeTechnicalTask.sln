@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftServeTechnicalTask", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftServerTechnicalTask.Domain", "SoftServerTechnicalTask.Domain\SoftServerTechnicalTask.Domain.csproj", "{5523127A-3FA9-43DB-8773-8B63A09D9791}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftServeTechnicalTask.Persistence", "SoftServeTechnicalTask.Persistence\SoftServeTechnicalTask.Persistence.csproj", "{2D5E5615-3A8A-44B9-ABF1-445F75182FAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5523127A-3FA9-43DB-8773-8B63A09D9791}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5523127A-3FA9-43DB-8773-8B63A09D9791}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5523127A-3FA9-43DB-8773-8B63A09D9791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D5E5615-3A8A-44B9-ABF1-445F75182FAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D5E5615-3A8A-44B9-ABF1-445F75182FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D5E5615-3A8A-44B9-ABF1-445F75182FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D5E5615-3A8A-44B9-ABF1-445F75182FAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

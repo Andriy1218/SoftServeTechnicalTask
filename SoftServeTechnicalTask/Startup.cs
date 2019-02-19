@@ -14,7 +14,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using SoftServeTechnicalTask.DBContext;
 using SoftServeTechnicalTask.Validators;
 using Swashbuckle.AspNetCore.Swagger;
 

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SoftServerTechnicalTask.Domain.Model;
 
-
-namespace SoftServeTechnicalTask.DBContext
+namespace SoftServeTechnicalTask.Persistence.DBContext
 {
     public sealed class ApplicationContext : DbContext
     {
