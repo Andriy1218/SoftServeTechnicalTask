@@ -1,15 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using SoftServerTechnicalTask.Domain.BuildingBlocks;
+using System.Collections.Generic;
 
 namespace SoftServerTechnicalTask.Domain.Model
 {
-    public class Country
+    public class Country : Entity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
-        public int OrganizationId { get; set; }
-        public Organization Organization { get; set; }
-        public List<Business> Businesses { get; }
+        public int OrganizationId { get; private set; }
+        public Organization Organization { get; private set; }
+        public List<Business> Businesses { get; private set; }
 
         public Country(string name, string code, int organizationId)
         {

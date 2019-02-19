@@ -1,12 +1,13 @@
-﻿namespace SoftServerTechnicalTask.Domain.Model
+﻿using SoftServerTechnicalTask.Domain.BuildingBlocks;
+
+namespace SoftServerTechnicalTask.Domain.Model
 {
-    public class Department
+    public class Department : Entity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
 
-        public int OfferingId { get; set; }
-        public Offering Offering { get; set; }
+        public int OfferingId { get; private set; }
+        public Offering Offering { get; private set; }
 
         public Department(string name, int offeringId)
         {

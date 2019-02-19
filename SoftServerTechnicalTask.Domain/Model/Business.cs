@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using SoftServerTechnicalTask.Domain.BuildingBlocks;
+using System.Collections.Generic;
 
 namespace SoftServerTechnicalTask.Domain.Model
 {
-    public class Business
+    public class Business : Entity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
-        public int CountryId { get; set; }
-        public Country Country { get; set; }
-        public List<Family> Families { get; }
+        public int CountryId { get; private set; }
+        public Country Country { get; private set; }
+        public List<Family> Families { get; private set; }
 
         public Business(string name, int countryId)
         {
@@ -16,6 +16,5 @@ namespace SoftServerTechnicalTask.Domain.Model
             CountryId = countryId;
             Families = new List<Family>();
         }
-
     }
 }

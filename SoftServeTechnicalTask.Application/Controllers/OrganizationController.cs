@@ -20,7 +20,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
 
         // ToDo: Add xml documentation to all controllers/actions
         /// <summary>
-        /// GetById existing organization by Id
+        /// GetByIdAsync existing organization by Id
         /// </summary>
         /// <param name="organizationId">Id of organization which you want to get</param>
         /// <returns>Return organization model with all sub-items (countries, business, etc)</returns>
@@ -29,7 +29,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
         [HttpGet("{organizationId}")]
         public async Task<IActionResult> GetOrganizationById(int organizationId)
         {
-            var organization = await _organizationRepository.GetById(organizationId);
+            var organization = await _organizationRepository.GetByIdAsync(organizationId);
             if (organization == null)
             {
                 Log.Warning($"Organization with id={organizationId} wasn't found!");
@@ -50,7 +50,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateOrganization(Organization organization)
         {
-            var successfullyCreated = await _organizationRepository.Create(organization);
+            var successfullyCreated = await _organizationRepository.CreateAsync(organization);
             if (!successfullyCreated)
             {
                 Log.Warning($"Organization with name={organization.Name} already exists!");
@@ -72,14 +72,14 @@ namespace SoftServeTechnicalTask.Application.Controllers
         [HttpPut("{organizationId}")]
         public async Task<IActionResult> UpdateOrganization([FromRoute] int organizationId, [FromBody] Organization organization)
         {
-            var existingOrganization = await _organizationRepository.GetById(organizationId);
+            var existingOrganization = await _organizationRepository.GetByIdAsync(organizationId);
             if (existingOrganization == null)
             {
                 Log.Warning($"Organization with id={organization.Id} wasn't found!");
                 return NotFound($"Organization with id={organization.Id} wasn't found!");
             }
 
-            await _organizationRepository.Update(organization);
+            await _organizationRepository.UpdateAsync(organization);
 
             Log.Information($"Organization {organization.Name} was successfully updated!");
             return Accepted(organization);
@@ -95,14 +95,14 @@ namespace SoftServeTechnicalTask.Application.Controllers
         [HttpDelete("{organizationId}")]
         public async Task<IActionResult> DeleteOrganizationById(int organizationId)
         {
-            var organization = await _organizationRepository.GetById(organizationId);
+            var organization = await _organizationRepository.GetByIdAsync(organizationId);
             if (organization == null)
             {
                 Log.Warning($"Organization with id={organizationId} wasn't found!");
                 return NotFound($"Organization with id={organizationId} wasn't found!");
             }
 
-            await _organizationRepository.DeleteById(organizationId);
+            await _organizationRepository.DeleteByIdAsync(organizationId);
 
             Log.Information($"Organization {organization.Name} was successfully deleted!");
             return Accepted($"Organization {organization.Name} was successfully deleted!");
