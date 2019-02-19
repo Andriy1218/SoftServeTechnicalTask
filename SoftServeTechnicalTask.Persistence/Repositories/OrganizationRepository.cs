@@ -34,11 +34,14 @@ namespace SoftServeTechnicalTask.Persistence.Repositories
             return true;
         }
 
-        public Task Update(Organization entity)
+        public async Task<bool> Update(Organization entity)
         {
+            var existingOrganization = await _context.Organizations.FirstOrDefaultAsync(x => x.Id == entity.Id);
+            if (existingOrganization == null)
+                return false;
+            
             _context.Organizations.Update(entity);
-
-            return Task.CompletedTask;
+            return true;
         }
 
         public async Task<bool> DeleteById(int entityId)

@@ -6,7 +6,7 @@ namespace SoftServerTechnicalTask.Domain.Abstractions
     {
         Task<T> GetById(int entityId);
         Task<bool> Create(T entity);
-        Task Update(T entity);
+        Task<bool> Update(T entity);
         Task<bool> DeleteById(int entityId);
     }
 }
