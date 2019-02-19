@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Newtonsoft.Json.Converters;
 
-namespace SoftServeTechnicalTask.Model
+namespace SoftServerTechnicalTask.Domain.Model
 {
     public class Organization
     {

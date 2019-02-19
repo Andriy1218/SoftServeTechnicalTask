@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using SoftServeTechnicalTask.Model;
+using SoftServerTechnicalTask.Domain.Model;
 
 namespace SoftServeTechnicalTask.Validators
 {

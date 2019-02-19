@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using SoftServerTechnicalTask.Domain.Model;
 using SoftServeTechnicalTask.DBContext;
-using SoftServeTechnicalTask.Model;
 
 namespace SoftServeTechnicalTask.Controllers
 {

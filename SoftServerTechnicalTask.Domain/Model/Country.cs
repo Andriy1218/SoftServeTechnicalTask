@@ -1,19 +1,14 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using Newtonsoft.Json;
 
-namespace SoftServeTechnicalTask.Model
+namespace SoftServerTechnicalTask.Domain.Model
 {
     public class Country
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
-
         public int OrganizationId { get; set; }
-        [JsonIgnore]
         public Organization Organization { get; set; }
-
         public List<Business> Businesses { get; }
 
         public Country(string name, string code, int organizationId)
