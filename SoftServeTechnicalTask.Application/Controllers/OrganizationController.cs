@@ -1,11 +1,10 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Serilog;
 using SoftServerTechnicalTask.Domain.Abstractions;
 using SoftServerTechnicalTask.Domain.Model;
 
-namespace SoftServeTechnicalTask.Controllers
+namespace SoftServeTechnicalTask.Application.Controllers
 {
     [Route("/api/organization")]
     [ApiController]

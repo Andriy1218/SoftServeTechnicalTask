@@ -1,23 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using SoftServeTechnicalTask.Validators;
+using SoftServerTechnicalTask.Domain.Abstractions;
+using SoftServeTechnicalTask.Application.Validators;
+using SoftServeTechnicalTask.Persistence.DBContext;
+using SoftServeTechnicalTask.Persistence.Repositories;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace SoftServeTechnicalTask
+namespace SoftServeTechnicalTask.Host
 {
     public class Startup
     {
@@ -30,6 +27,7 @@ namespace SoftServeTechnicalTask
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IOrganizationRepository, OrganizationRepository>();
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 

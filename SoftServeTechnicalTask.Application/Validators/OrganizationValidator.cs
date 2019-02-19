@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using SoftServerTechnicalTask.Domain.Model;
 
-namespace SoftServeTechnicalTask.Validators
+namespace SoftServeTechnicalTask.Application.Validators
 {
     public class OrganizationValidator : AbstractValidator<Organization>
     {

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 using SoftServerTechnicalTask.Domain.Model;
 
-namespace SoftServeTechnicalTask.Validators
+namespace SoftServeTechnicalTask.Application.Validators
 {
     public class CountryValidator : AbstractValidator<Country>
     {
