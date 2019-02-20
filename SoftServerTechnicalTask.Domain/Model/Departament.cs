@@ -4,8 +4,6 @@ namespace SoftServerTechnicalTask.Domain.Model
 {
     public class Department : Entity
     {
-        public string Name { get; set; }
-
         public int OfferingId { get; private set; }
         public Offering Offering { get; private set; }
 

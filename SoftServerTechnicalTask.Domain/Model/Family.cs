@@ -5,8 +5,6 @@ namespace SoftServerTechnicalTask.Domain.Model
 {
     public class Family : Entity
     {
-        public string Name { get; set; }
-
         public int BusinessId { get; private set; }
 
         public Business Business { get; private set; }

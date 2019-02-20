@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace SoftServeTechnicalTask.Persistence.Repositories.BuildingBlocks
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity>
-    where TEntity : Entity
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : Entity
     {
         protected readonly ApplicationContext _context;
 
@@ -21,6 +20,7 @@ namespace SoftServeTechnicalTask.Persistence.Repositories.BuildingBlocks
             return _context.FindAsync<TEntity>(id);
         }
 
+        // ToDo: Temp solution
         public async Task<bool> CreateAsync(TEntity entity)
         {
             if (await Has(entity.Id))

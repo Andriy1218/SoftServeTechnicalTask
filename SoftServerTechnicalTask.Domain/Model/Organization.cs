@@ -5,8 +5,6 @@ namespace SoftServerTechnicalTask.Domain.Model
 {
     public class Organization : Entity
     {
-        public string Name { get; set; }
-
         public string Code { get; set; }
 
         public OrganizationType OrganizationType { get; set; }
