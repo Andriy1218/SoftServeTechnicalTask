@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -44,6 +45,16 @@ namespace SoftServeTechnicalTask.Host
             services.AddMvc()
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<OrganizationValidator>())
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            var authOptions = new AuthOptions(Configuration);
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = "GitHub";
+            })
+            .AddCookie()
+            .AddOAuth("GitHub", options => { authOptions.InitGithubOAuthOptions(options); });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -63,7 +74,7 @@ namespace SoftServeTechnicalTask.Host
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "SoftServeTechnicalTask API V1");
             });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

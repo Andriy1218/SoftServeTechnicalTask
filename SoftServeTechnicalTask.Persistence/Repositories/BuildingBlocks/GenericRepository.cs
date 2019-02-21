@@ -20,7 +20,6 @@ namespace SoftServeTechnicalTask.Persistence.Repositories.BuildingBlocks
             return _context.FindAsync<TEntity>(id);
         }
 
-        // ToDo: Temp solution
         public async Task<bool> CreateAsync(TEntity entity)
         {
             if (await Has(entity.Id))
