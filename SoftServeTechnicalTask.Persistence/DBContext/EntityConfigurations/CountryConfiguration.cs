@@ -14,12 +14,12 @@ namespace SoftServeTechnicalTask.Persistence.DBContext.EntityConfigurations
             builder.HasKey(x => x.Id);
             builder.HasOne(x => x.Organization)
                 .WithMany(o => o.Countries)
-                .HasForeignKey(c => c.OrganizationId);
+                .HasForeignKey(c => c.ParentId);
             builder.Property(x => x.Name).IsRequired();
             builder.Property(x => x.Code).IsRequired();
-            builder.Property(x => x.OrganizationId).IsRequired();
+            builder.Property(x => x.ParentId).IsRequired();
 
-            builder.HasIndex(p => new { p.Name, p.OrganizationId })
+            builder.HasIndex(p => new { p.Name, p.ParentId })
                 .IsUnique();
         }
     }

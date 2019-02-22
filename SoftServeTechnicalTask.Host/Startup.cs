@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using AspNetCore.RouteAnalyzer;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -29,6 +30,7 @@ namespace SoftServeTechnicalTask.Host
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IOrganizationRepository, OrganizationRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -38,7 +40,7 @@ namespace SoftServeTechnicalTask.Host
             });
             services.ConfigureSwaggerGen(options =>
             {
-                string xmlPath = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
+                string xmlPath = Path.Combine(AppContext.BaseDirectory, $"SoftServeTechnicalTask.Application.xml");
                 options.IncludeXmlComments(xmlPath);
             });
 
@@ -55,6 +57,8 @@ namespace SoftServeTechnicalTask.Host
             })
             .AddCookie()
             .AddOAuth("GitHub", options => { authOptions.InitGithubOAuthOptions(options); });
+
+            services.AddRouteAnalyzer();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -73,6 +77,8 @@ namespace SoftServeTechnicalTask.Host
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "SoftServeTechnicalTask API V1");
             });
+
+            app.UseAuthentication();
 
             //app.UseHttpsRedirection();
             app.UseMvc();

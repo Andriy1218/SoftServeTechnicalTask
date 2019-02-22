@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SoftServeTechnicalTask.Application</name>
+    </assembly>
+    <members>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.OrganizationController.Get(System.Int32)">
+            <summary>
+            GetByIdAsync existing organization by Id
+            </summary>
+            <param name="organizationId">Id of organization which you want to get</param>
+            <returns>Return organization model with all sub-items (countries, business, etc)</returns>
+            <response code="200">Success</response>
+            <response code="404">Organization with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.OrganizationController.Create(SoftServerTechnicalTask.Domain.Model.Organization)">
+            <summary>
+            Create new organization
+            </summary>
+            <param name="organization">Object of organization which you want to create</param>
+            <returns>Return the created organization</returns>
+            <response code="201">Successfully created</response>
+            <response code="409">Organization with such name already exists</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.OrganizationController.Update(SoftServerTechnicalTask.Domain.Model.Organization)">
+            <summary>
+            Update existing organization
+            </summary>
+            <param name="organization">Object of organization which you want to update</param>
+            <returns>Return status code</returns>
+            <response code="202">Successfully updated</response>
+            <response code="404">Organization with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.OrganizationController.Delete(System.Int32)">
+            <summary>
+            Delete existing organization
+            </summary>
+            <param name="organizationId">Id of organization which you want to delete</param>
+            <returns>Return status code</returns>
+            <response code="202">Successfully deleted</response>
+            <response code="404">Organization with such id wasn't found</response>
+        </member>
+    </members>
+</doc>

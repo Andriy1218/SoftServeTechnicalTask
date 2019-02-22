@@ -1,13 +1,10 @@
-﻿using SoftServerTechnicalTask.Domain.Abstractions;
+﻿using SoftServerTechnicalTask.Domain.BuildingBlocks;
 using System.Collections.Generic;
-using SoftServerTechnicalTask.Domain.BuildingBlocks;
 
 namespace SoftServerTechnicalTask.Domain.Model
 {
-    public class Offering : Entity
+    public class Offering : ChildEntity
     {
-        public int FamilyId { get; private set; }
-
         public Family Family { get; private set; }
 
         public List<Department> Departments { get; private set; }
@@ -15,9 +12,13 @@ namespace SoftServerTechnicalTask.Domain.Model
         public Offering(string name, int familyId)
         {
             Name = name;
-            FamilyId = familyId;
+            ParentId = familyId;
             Departments = new List<Department>();
         }
 
+        private Offering()
+        {
+            
+        }
     }
 }

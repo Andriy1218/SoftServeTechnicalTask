@@ -15,7 +15,7 @@ namespace SoftServeTechnicalTask.Application.Validators
             RuleFor(x => x.Code).NotEmpty().WithMessage("Code should not be empty")
                 .Length(1, 10).WithMessage("Code has invalid length");
 
-            RuleFor(x => x.OrganizationId).NotEmpty().WithMessage("OrganizationId should not be empty");
+            RuleFor(x => x.ParentId).NotEmpty().WithMessage("OrganizationId should not be empty");
 
             RuleFor(x => x.Businesses).Must(x => x == null || x.Count == 0).WithMessage("Businesses should be added/modified via another route");
         }

@@ -13,13 +13,19 @@ namespace SoftServerTechnicalTask.Domain.Model
 
         public List<Country> Countries { get; private set; }
 
-        public Organization(string name, string code, OrganizationType organizationType, string owner)
+        public Organization(string name, string code, OrganizationType organizationType, string owner, int id = 0)
         {
             Name = name;
             Code = code;
             OrganizationType = organizationType;
             Owner = owner;
             Countries = new List<Country>();
+            Id = id;
+        }
+
+        private Organization()
+        {
+            
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using SoftServerTechnicalTask.Domain.Model;
+using SoftServeTechnicalTask.Application.Commands.Organizations;
 
 namespace SoftServeTechnicalTask.Application.Validators
 {
@@ -7,7 +8,7 @@ namespace SoftServeTechnicalTask.Application.Validators
     {
         public OrganizationValidator()
         {
-            RuleFor(x => x.Id).Must(x => x == 0).WithMessage("Request should not contain id, because it will be generated automatically");
+            //RuleFor(x => x.Id).Must(x => x == 0).WithMessage("Request should not contain id, because it will be generated automatically");
 
             RuleFor(x => x.Name).NotEmpty().WithMessage("Name should not be empty")
                 .Length(1, 100).WithMessage("Name has invalid length");

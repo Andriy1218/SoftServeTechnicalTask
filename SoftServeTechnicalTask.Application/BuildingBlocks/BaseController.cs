@@ -29,5 +29,17 @@ namespace SoftServeTechnicalTask.Application.BuildingBlocks
             Log.Information($"{typeof(TEntity).Name} with name={entity.Name} was successfully updated!");
             return Accepted($"{typeof(TEntity).Name} with name={entity.Name} was successfully updated!");
         }
+
+        protected IActionResult ReturnAcceptedCreated(TEntity entity)
+        {
+            Log.Information($"{typeof(TEntity).Name} with id={entity.Id} and name={entity.Name} was successfully created!");
+            return Accepted($"{typeof(TEntity).Name} with id={entity.Id} and name={entity.Name} was successfully created!");
+        }
+        protected IActionResult ReturnOk(TEntity entity)
+        {
+            Log.Information($"{typeof(TEntity).Name} with id={entity.Id} was successfully sent!");
+            return Ok(entity);
+        }
+
     }
 }

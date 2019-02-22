@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 namespace SoftServerTechnicalTask.Domain.Model
 {
-    public class Country : Entity
+    public class Country : ChildEntity
     {
-        public string Code { get; set; }
-        public int OrganizationId { get; private set; }
+        public string Code { get; private set; }
         public Organization Organization { get; private set; }
         public List<Business> Businesses { get; private set; }
 
@@ -14,8 +13,13 @@ namespace SoftServerTechnicalTask.Domain.Model
         {
             Name = name;
             Code = code;
-            OrganizationId = organizationId;
+            ParentId = organizationId;
             Businesses = new List<Business>();
+        }
+
+        private Country()
+        {
+                
         }
 
     }

@@ -3,17 +3,21 @@ using System.Collections.Generic;
 
 namespace SoftServerTechnicalTask.Domain.Model
 {
-    public class Business : Entity
+    public class Business : ChildEntity
     {
-        public int CountryId { get; private set; }
         public Country Country { get; private set; }
         public List<Family> Families { get; private set; }
 
-        public Business(string name, int countryId)
+        public Business(string name, int parentId)
         {
             Name = name;
-            CountryId = countryId;
+            ParentId = parentId;
             Families = new List<Family>();
+        }
+
+        private Business()
+        {
+            
         }
     }
 }

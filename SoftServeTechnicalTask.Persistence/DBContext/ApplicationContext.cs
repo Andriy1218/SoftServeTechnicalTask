@@ -12,6 +12,7 @@ namespace SoftServeTechnicalTask.Persistence.DBContext
         public DbSet<Family> Families { get; set; }
         public DbSet<Offering> Offerings { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
@@ -26,6 +27,7 @@ namespace SoftServeTechnicalTask.Persistence.DBContext
             modelBuilder.ApplyConfiguration(new FamilyConfiguration());
             modelBuilder.ApplyConfiguration(new OfferingConfiguration());
             modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
     }
 }

@@ -14,11 +14,11 @@ namespace SoftServeTechnicalTask.Persistence.DBContext.EntityConfigurations
             builder.HasKey(x => x.Id);
             builder.HasOne(x => x.Country)
                 .WithMany(c => c.Businesses)
-                .HasForeignKey(b => b.CountryId);
+                .HasForeignKey(b => b.ParentId);
             builder.Property(x => x.Name).IsRequired();
-            builder.Property(x => x.CountryId).IsRequired();
+            builder.Property(x => x.ParentId).IsRequired();
 
-            builder.HasIndex(x => new { x.Name, x.CountryId })
+            builder.HasIndex(x => new { x.Name, x.ParentId })
                 .IsUnique();
         }
     }

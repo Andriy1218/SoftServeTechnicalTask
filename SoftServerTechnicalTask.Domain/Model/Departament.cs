@@ -2,15 +2,19 @@
 
 namespace SoftServerTechnicalTask.Domain.Model
 {
-    public class Department : Entity
+    public class Department : ChildEntity
     {
-        public int OfferingId { get; private set; }
         public Offering Offering { get; private set; }
 
-        public Department(string name, int offeringId)
+        public Department(string name, int parentId)
         {
             Name = name;
-            OfferingId = offeringId;
+            ParentId = parentId;
+        }
+
+        private Department()
+        {
+            
         }
 
     }

@@ -5,7 +5,7 @@ using SoftServerTechnicalTask.Domain.BuildingBlocks;
 
 namespace SoftServerTechnicalTask.Domain.Model
 {
-    class User : Entity
+    public class User : Entity
     {
         public string Login { get; private set; }
         public int NameIdentifier { get; private set; }
@@ -15,6 +15,11 @@ namespace SoftServerTechnicalTask.Domain.Model
             Name = name;
             Login = login;
             NameIdentifier = nameIdentifier;
+        }
+
+        private User()
+        {
+            
         }
     }
 }

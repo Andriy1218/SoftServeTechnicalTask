@@ -12,7 +12,7 @@ namespace SoftServeTechnicalTask.Application.Validators
             RuleFor(x => x.Name).NotEmpty().WithMessage("Name should not be empty")
                 .Length(1, 100).WithMessage("Name has invalid length");
 
-            RuleFor(x => x.FamilyId).NotEmpty().WithMessage("FamilyId should not be empty");
+            RuleFor(x => x.ParentId).NotEmpty().WithMessage("FamilyId should not be empty");
 
             RuleFor(x => x.Departments).Must(x => x == null || x.Count == 0).WithMessage("Departments should be added/modified via another route");
         }

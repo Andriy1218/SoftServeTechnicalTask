@@ -33,6 +33,7 @@ namespace SoftServeTechnicalTask.Host
             options.ClaimActions.MapJsonKey("urn:github:login", "login");
             options.ClaimActions.MapJsonKey("urn:github:url", "html_url");
             options.ClaimActions.MapJsonKey("urn:github:avatar", "avatar_url");
+            options.ClaimActions.MapJsonKey("urn:github:email", "email");
 
             options.Events = new OAuthEvents
             {
