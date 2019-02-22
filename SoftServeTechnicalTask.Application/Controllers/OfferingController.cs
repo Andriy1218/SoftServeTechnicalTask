@@ -24,7 +24,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
         /// Get existing offering by Id
         /// </summary>
         /// <param name="offeringId">Id of offering which you want to get</param>
-        /// <returns>Return offering model with all sub-items (offering, families, etc)</returns>
+        /// <returns>Return offering model with departments</returns>
         /// <response code="200">Success</response>
         /// <response code="404">Offering with such id wasn't found</response>
         [HttpGet("{offeringId}")]

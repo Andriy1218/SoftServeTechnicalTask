@@ -24,7 +24,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
         /// Get existing department by Id
         /// </summary>
         /// <param name="departmentId">Id of department which you want to get</param>
-        /// <returns>Return department model with all sub-items (department, families, etc)</returns>
+        /// <returns>Return department model</returns>
         /// <response code="200">Success</response>
         /// <response code="404">Department with such id wasn't found</response>
         [HttpGet("{departmentId}")]

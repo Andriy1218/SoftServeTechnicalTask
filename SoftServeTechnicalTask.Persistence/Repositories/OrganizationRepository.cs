@@ -13,6 +13,18 @@ namespace SoftServeTechnicalTask.Persistence.Repositories
         {
         }
 
+        public override Task<Organization> GetByIdAsync(int id)
+        {
+            var existingEntity = _context.Set<Organization>()
+                .Include(x => x.Countries)
+                .ThenInclude(x => x.Businesses)
+                .ThenInclude(x => x.Families)
+                .ThenInclude(x => x.Offerings)
+                .ThenInclude(x => x.Departments)
+                .FirstOrDefaultAsync(x => x.Id == id);
+            return existingEntity;
+        }
+
         public override async Task<bool> CreateAsync(Organization entity)
         {
             if (await _context.Organizations.AnyAsync(x => x.Name == entity.Name))

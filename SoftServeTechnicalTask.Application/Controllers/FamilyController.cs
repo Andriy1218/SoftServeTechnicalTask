@@ -24,7 +24,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
         /// Get existing family by Id
         /// </summary>
         /// <param name="familyId">Id of family which you want to get</param>
-        /// <returns>Return family model with all sub-items (family, families, etc)</returns>
+        /// <returns>Return family model with all sub-items (offerings, departments)</returns>
         /// <response code="200">Success</response>
         /// <response code="404">Family with such id wasn't found</response>
         [HttpGet("{familyId}")]

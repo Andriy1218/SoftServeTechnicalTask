@@ -4,9 +4,189 @@
         <name>SoftServeTechnicalTask.Application</name>
     </assembly>
     <members>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.BusinessController.Get(System.Int32)">
+            <summary>
+            Get existing business by Id
+            </summary>
+            <param name="businessId">Id of business which you want to get</param>
+            <returns>Return business model with all sub-items (families, offerings, etc)</returns>
+            <response code="200">Success</response>
+            <response code="404">Business with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.BusinessController.Create(SoftServerTechnicalTask.Domain.Model.Business)">
+            <summary>
+            Create new business
+            </summary>
+            <param name="business">Object of business which you want to create</param>
+            <returns>Return status code</returns>
+            <response code="201">Successfully created</response>
+            <response code="409">Business with such name already exists</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.BusinessController.Update(SoftServerTechnicalTask.Domain.Model.Business)">
+            <summary>
+            Update existing business
+            </summary>
+            <param name="business">Object of business which you want to update</param>
+            <returns>Return status code</returns>
+            <response code="202">Successfully updated</response>
+            <response code="404">Business with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.BusinessController.Delete(System.Int32)">
+            <summary>
+            Delete existing business
+            </summary>
+            <param name="businessId">Id of business which you want to delete</param>
+            <returns>Return status code</returns>
+            <response code="202">Successfully deleted</response>
+            <response code="404">Business with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.CountryController.Get(System.Int32)">
+            <summary>
+            Get existing country by Id
+            </summary>
+            <param name="countryId">Id of country which you want to get</param>
+            <returns>Return country model with all sub-items (business, families, etc)</returns>
+            <response code="200">Success</response>
+            <response code="404">Country with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.CountryController.Create(SoftServerTechnicalTask.Domain.Model.Country)">
+            <summary>
+            Create new country
+            </summary>
+            <param name="country">Object of country which you want to create</param>
+            <returns>Return status code</returns>
+            <response code="201">Successfully created</response>
+            <response code="409">Country with such name already exists</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.CountryController.Update(SoftServerTechnicalTask.Domain.Model.Country)">
+            <summary>
+            Update existing country
+            </summary>
+            <param name="country">Object of country which you want to update</param>
+            <returns>Return status code</returns>
+            <response code="202">Successfully updated</response>
+            <response code="404">Country with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.CountryController.Delete(System.Int32)">
+            <summary>
+            Delete existing country
+            </summary>
+            <param name="countryId">Id of country which you want to delete</param>
+            <returns>Return status code</returns>
+            <response code="202">Successfully deleted</response>
+            <response code="404">Country with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.DepartmentController.Get(System.Int32)">
+            <summary>
+            Get existing department by Id
+            </summary>
+            <param name="departmentId">Id of department which you want to get</param>
+            <returns>Return department model</returns>
+            <response code="200">Success</response>
+            <response code="404">Department with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.DepartmentController.Create(SoftServerTechnicalTask.Domain.Model.Department)">
+            <summary>
+            Create new department
+            </summary>
+            <param name="department">Object of department which you want to create</param>
+            <returns>Return status code</returns>
+            <response code="201">Successfully created</response>
+            <response code="409">Department with such name already exists</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.DepartmentController.Update(SoftServerTechnicalTask.Domain.Model.Department)">
+            <summary>
+            Update existing department
+            </summary>
+            <param name="department">Object of department which you want to update</param>
+            <returns>Return status code</returns>
+            <response code="202">Successfully updated</response>
+            <response code="404">Department with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.DepartmentController.Delete(System.Int32)">
+            <summary>
+            Delete existing department
+            </summary>
+            <param name="departmentId">Id of department which you want to delete</param>
+            <returns>Return status code</returns>
+            <response code="202">Successfully deleted</response>
+            <response code="404">Department with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.FamilyController.Get(System.Int32)">
+            <summary>
+            Get existing family by Id
+            </summary>
+            <param name="familyId">Id of family which you want to get</param>
+            <returns>Return family model with all sub-items (offerings, departments)</returns>
+            <response code="200">Success</response>
+            <response code="404">Family with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.FamilyController.Create(SoftServerTechnicalTask.Domain.Model.Family)">
+            <summary>
+            Create new family
+            </summary>
+            <param name="family">Object of family which you want to create</param>
+            <returns>Return status code</returns>
+            <response code="201">Successfully created</response>
+            <response code="409">Family with such name already exists</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.FamilyController.Update(SoftServerTechnicalTask.Domain.Model.Family)">
+            <summary>
+            Update existing family
+            </summary>
+            <param name="family">Object of family which you want to update</param>
+            <returns>Return status code</returns>
+            <response code="202">Successfully updated</response>
+            <response code="404">Family with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.FamilyController.Delete(System.Int32)">
+            <summary>
+            Delete existing family
+            </summary>
+            <param name="familyId">Id of family which you want to delete</param>
+            <returns>Return status code</returns>
+            <response code="202">Successfully deleted</response>
+            <response code="404">Family with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.OfferingController.Get(System.Int32)">
+            <summary>
+            Get existing offering by Id
+            </summary>
+            <param name="offeringId">Id of offering which you want to get</param>
+            <returns>Return offering model with departments</returns>
+            <response code="200">Success</response>
+            <response code="404">Offering with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.OfferingController.Create(SoftServerTechnicalTask.Domain.Model.Offering)">
+            <summary>
+            Create new offering
+            </summary>
+            <param name="offering">Object of offering which you want to create</param>
+            <returns>Return status code</returns>
+            <response code="201">Successfully created</response>
+            <response code="409">Offering with such name already exists</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.OfferingController.Update(SoftServerTechnicalTask.Domain.Model.Offering)">
+            <summary>
+            Update existing offering
+            </summary>
+            <param name="offering">Object of offering which you want to update</param>
+            <returns>Return status code</returns>
+            <response code="202">Successfully updated</response>
+            <response code="404">Offering with such id wasn't found</response>
+        </member>
+        <member name="M:SoftServeTechnicalTask.Application.Controllers.OfferingController.Delete(System.Int32)">
+            <summary>
+            Delete existing offering
+            </summary>
+            <param name="offeringId">Id of offering which you want to delete</param>
+            <returns>Return status code</returns>
+            <response code="202">Successfully deleted</response>
+            <response code="404">Offering with such id wasn't found</response>
+        </member>
         <member name="M:SoftServeTechnicalTask.Application.Controllers.OrganizationController.Get(System.Int32)">
             <summary>
-            GetByIdAsync existing organization by Id
+            Get existing organization by Id
             </summary>
             <param name="organizationId">Id of organization which you want to get</param>
             <returns>Return organization model with all sub-items (countries, business, etc)</returns>
@@ -18,7 +198,7 @@
             Create new organization
             </summary>
             <param name="organization">Object of organization which you want to create</param>
-            <returns>Return the created organization</returns>
+            <returns>Return status code</returns>
             <response code="201">Successfully created</response>
             <response code="409">Organization with such name already exists</response>
         </member>

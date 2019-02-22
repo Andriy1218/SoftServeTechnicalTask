@@ -24,7 +24,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
         /// Get existing business by Id
         /// </summary>
         /// <param name="businessId">Id of business which you want to get</param>
-        /// <returns>Return business model with all sub-items (business, families, etc)</returns>
+        /// <returns>Return business model with all sub-items (families, offerings, etc)</returns>
         /// <response code="200">Success</response>
         /// <response code="404">Business with such id wasn't found</response>
         [HttpGet("{businessId}")]

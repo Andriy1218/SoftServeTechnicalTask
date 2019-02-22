@@ -13,5 +13,15 @@ namespace SoftServeTechnicalTask.Persistence.Repositories
         public BusinessRepository(ApplicationContext context) : base(context)
         {
         }
+
+        public override Task<Business> GetByIdAsync(int id)
+        {
+            var existingEntity = _context.Set<Business>()
+                .Include(x => x.Families)
+                .ThenInclude(x => x.Offerings)
+                .ThenInclude(x => x.Departments)
+                .FirstOrDefaultAsync(x => x.Id == id);
+            return existingEntity;
+        }
     }
 }
