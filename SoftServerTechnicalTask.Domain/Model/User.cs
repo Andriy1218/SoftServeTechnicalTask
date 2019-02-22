@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SoftServerTechnicalTask.Domain.BuildingBlocks;
+﻿using SoftServerTechnicalTask.Domain.BuildingBlocks;
 
 namespace SoftServerTechnicalTask.Domain.Model
 {

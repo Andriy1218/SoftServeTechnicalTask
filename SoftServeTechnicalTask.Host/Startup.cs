@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
 using AspNetCore.RouteAnalyzer;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -13,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SoftServerTechnicalTask.Domain.Abstractions;
 using SoftServerTechnicalTask.Domain.Abstractions.ChildEntityRepositories;
 using SoftServeTechnicalTask.Application.Validators;
+using SoftServeTechnicalTask.Host.Extensions;
 using SoftServeTechnicalTask.Persistence.DBContext;
 using SoftServeTechnicalTask.Persistence.Repositories;
 using Swashbuckle.AspNetCore.Swagger;
@@ -87,6 +87,7 @@ namespace SoftServeTechnicalTask.Host
 
             app.UseAuthentication();
 
+            app.ConfigureExceptionHandler();
             //app.UseHttpsRedirection();
             app.UseMvc();
         }

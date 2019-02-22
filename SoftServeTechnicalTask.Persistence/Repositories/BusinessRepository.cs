@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SoftServerTechnicalTask.Domain.Abstractions;
 using SoftServerTechnicalTask.Domain.Abstractions.ChildEntityRepositories;
 using SoftServerTechnicalTask.Domain.Model;
 using SoftServeTechnicalTask.Persistence.DBContext;

@@ -3,7 +3,6 @@ using SoftServerTechnicalTask.Domain.BuildingBlocks;
 using SoftServeTechnicalTask.Persistence.DBContext;
 using System;
 using System.Threading.Tasks;
-using SoftServerTechnicalTask.Domain.Model;
 
 namespace SoftServeTechnicalTask.Persistence.Repositories.BuildingBlocks
 {
