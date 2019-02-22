@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using SoftServerTechnicalTask.Domain.Model;
-using SoftServeTechnicalTask.Application.Commands.Organizations;
 
 namespace SoftServeTechnicalTask.Application.Validators
 {

@@ -33,7 +33,7 @@ namespace SoftServeTechnicalTask.Persistence.Repositories.BuildingBlocks
             if (existingEntity == null)
                 return false;
 
-            _context.Update(entity);
+            _context.Update(existingEntity);
             await _context.SaveChangesAsync();
             return true;
         }
@@ -49,9 +49,5 @@ namespace SoftServeTechnicalTask.Persistence.Repositories.BuildingBlocks
             return true;
         }
 
-        public virtual Task<bool> Has(int entityId)
-        {
-            return _context.Set<TEntity>().AnyAsync(x => x.Id == entityId);
-        }
     }
 }

@@ -19,5 +19,10 @@ namespace SoftServeTechnicalTask.Persistence.Repositories.BuildingBlocks
 
             return await base.CreateAsync(entity);
         }
+
+        public Task<TEntity> GetByNameAndParentId(string name, int parentId)
+        {
+            return _context.Set<TEntity>().FirstOrDefaultAsync(x => x.Name == name & x.ParentId == parentId);
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace SoftServerTechnicalTask.Domain.Model
 {
     public class Country : ChildEntity
     {
-        public string Code { get; private set; }
+        public string Code { get; set; }
         public Organization Organization { get; private set; }
         public List<Business> Businesses { get; private set; }
 

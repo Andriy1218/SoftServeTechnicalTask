@@ -8,6 +8,5 @@ namespace SoftServerTechnicalTask.Domain.BuildingBlocks
         Task<bool> CreateAsync(T entity);
         Task<bool> UpdateAsync(T entity);
         Task<bool> DeleteByIdAsync(int entityId);
-        Task<bool> Has(int entityId);
     }
 }
