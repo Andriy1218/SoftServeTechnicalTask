@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SoftServerTechnicalTask.Domain.Abstractions.ChildEntityRepositories;
 using SoftServerTechnicalTask.Domain.Model;
@@ -8,6 +9,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
 {
     [Route("/api/country")]
     [ApiController]
+    [Authorize]
     public class CountryController : BaseController<Country>
     {
         private readonly ICountryRepository _countryRepository;
@@ -24,6 +26,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
         /// <returns>Return country model with all sub-items (business, families, etc)</returns>
         /// <response code="200">Success</response>
         /// <response code="404">Country with such id wasn't found</response>
+        [AllowAnonymous]
         [HttpGet("{countryId}")]
         public async Task<IActionResult> Get([FromRoute]int countryId)
         {

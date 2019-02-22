@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SoftServerTechnicalTask.Domain.Abstractions.ChildEntityRepositories;
 using SoftServerTechnicalTask.Domain.Model;
@@ -8,6 +9,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
 {
     [Route("/api/department")]
     [ApiController]
+    [Authorize]
     public class DepartmentController : BaseController<Department>
     {
         private readonly IDepartmentRepository _departmentRepository;
@@ -24,6 +26,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
         /// <returns>Return department model</returns>
         /// <response code="200">Success</response>
         /// <response code="404">Department with such id wasn't found</response>
+        [AllowAnonymous]
         [HttpGet("{departmentId}")]
         public async Task<IActionResult> Get([FromRoute]int departmentId)
         {

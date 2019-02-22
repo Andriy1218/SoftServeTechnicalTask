@@ -2,12 +2,14 @@
 using SoftServerTechnicalTask.Domain.Abstractions;
 using SoftServerTechnicalTask.Domain.Model;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using SoftServeTechnicalTask.Application.BuildingBlocks;
 
 namespace SoftServeTechnicalTask.Application.Controllers
 {
     [Route("/api/organization")]
     [ApiController]
+    [Authorize]
     public class OrganizationController : BaseController<Organization>
     {
         private readonly IOrganizationRepository _organizationRepository;
@@ -24,6 +26,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
         /// <returns>Return organization model with all sub-items (countries, business, etc)</returns>
         /// <response code="200">Success</response>
         /// <response code="404">Organization with such id wasn't found</response>
+        [AllowAnonymous]
         [HttpGet("{organizationId}")]
         public async Task<IActionResult> Get([FromRoute]int organizationId)
         {

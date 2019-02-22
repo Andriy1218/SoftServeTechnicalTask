@@ -35,6 +35,9 @@ namespace SoftServeTechnicalTask.Persistence.Repositories
 
         public override async Task<bool> UpdateAsync(Organization entity)
         {
+            if (entity == null)
+                return false;
+
             var existingEntity = await _context.Set<Organization>().FirstOrDefaultAsync(x => x.Id == entity.Id);
             if (existingEntity == null)
                 return false;

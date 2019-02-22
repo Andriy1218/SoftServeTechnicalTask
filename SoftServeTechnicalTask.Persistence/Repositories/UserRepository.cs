@@ -13,9 +13,9 @@ namespace SoftServeTechnicalTask.Persistence.Repositories
         {
         }
 
-        public Task<Organization> GetByName(string name)
+        public Task<User> GetByNameIdentifier(int nameIdentifier)
         {
-            return _context.Organizations.FirstOrDefaultAsync(x => x.Name == name);
+            return _context.Users.FirstOrDefaultAsync(x => x.NameIdentifier == nameIdentifier);
         }
     }
 }

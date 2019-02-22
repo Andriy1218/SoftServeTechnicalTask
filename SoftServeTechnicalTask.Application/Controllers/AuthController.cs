@@ -27,23 +27,19 @@ namespace SoftServeTechnicalTask.Application.Controllers
         [HttpGet("finish_login")]
         public async Task<IActionResult> FinishLogin()
         {
-            var nameIdentifier = int.Parse(User.FindFirst(c => c.Type == ClaimTypes.NameIdentifier).Value);
-            var login = User.FindFirst(c => c.Type == "urn:github:login").Value;
+            string login = User.FindFirst(c => c.Type == "urn:github:login").Value;
+            if (login.Length == 0)
+                return Forbid();
 
-            var user = new User(User.Identity.Name, login, nameIdentifier);
+            int nameIdentifier = int.Parse(User.FindFirst(c => c.Type == ClaimTypes.NameIdentifier).Value);
+            var existingUser = _userRepository.GetByNameIdentifier(nameIdentifier);
+            if (existingUser != null)
+                return Ok();
+
+            User user = new User(User.Identity.Name, login, nameIdentifier);
             await _userRepository.CreateAsync(user);
-
             return Ok();
         }
     }
 
-    public class HomeController : Controller
-    {
-        [HttpGet("/")]
-
-        public IActionResult Main(string code)
-        {
-            return Ok(User.Identity.IsAuthenticated);
-        }
-    }
 }

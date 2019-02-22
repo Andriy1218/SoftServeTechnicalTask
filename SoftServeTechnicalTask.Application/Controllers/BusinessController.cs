@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SoftServerTechnicalTask.Domain.Abstractions.ChildEntityRepositories;
 using SoftServerTechnicalTask.Domain.Model;
@@ -8,6 +9,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
 {
     [Route("/api/business")]
     [ApiController]
+    [Authorize]
     public class BusinessController : BaseController<Business>
     {
         private readonly IBusinessRepository _businessRepository;
@@ -24,6 +26,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
         /// <returns>Return business model with all sub-items (families, offerings, etc)</returns>
         /// <response code="200">Success</response>
         /// <response code="404">Business with such id wasn't found</response>
+        [AllowAnonymous]
         [HttpGet("{businessId}")]
         public async Task<IActionResult> Get([FromRoute]int businessId)
         {

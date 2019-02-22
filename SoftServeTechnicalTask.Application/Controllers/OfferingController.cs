@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SoftServerTechnicalTask.Domain.Abstractions.ChildEntityRepositories;
 using SoftServerTechnicalTask.Domain.Model;
@@ -8,6 +9,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
 {
     [Route("/api/offering")]
     [ApiController]
+    [Authorize]
     public class OfferingController : BaseController<Offering>
     {
         private readonly IOfferingRepository _offeringRepository;
@@ -24,6 +26,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
         /// <returns>Return offering model with departments</returns>
         /// <response code="200">Success</response>
         /// <response code="404">Offering with such id wasn't found</response>
+        [AllowAnonymous]
         [HttpGet("{offeringId}")]
         public async Task<IActionResult> Get([FromRoute]int offeringId)
         {
