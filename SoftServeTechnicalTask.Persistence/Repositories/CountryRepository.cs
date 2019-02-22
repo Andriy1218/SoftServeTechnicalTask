@@ -11,7 +11,7 @@ using SoftServeTechnicalTask.Persistence.Repositories.BuildingBlocks;
 
 namespace SoftServeTechnicalTask.Persistence.Repositories
 {
-    class CountryRepository : GenericChildRepository<Country>, ICountryRepository
+    public class CountryRepository : GenericChildRepository<Country>, ICountryRepository
     {
         public CountryRepository(ApplicationContext context) : base(context)
         {

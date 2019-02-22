@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SoftServerTechnicalTask.Domain.Abstractions;
+using SoftServerTechnicalTask.Domain.Abstractions.ChildEntityRepositories;
 using SoftServeTechnicalTask.Application.Validators;
 using SoftServeTechnicalTask.Persistence.DBContext;
 using SoftServeTechnicalTask.Persistence.Repositories;
@@ -31,6 +32,12 @@ namespace SoftServeTechnicalTask.Host
         {
             services.AddScoped<IOrganizationRepository, OrganizationRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ICountryRepository, CountryRepository>();
+            services.AddScoped<IBusinessRepository, BusinessRepository>();
+            services.AddScoped<IFamilyRepository, FamilyRepository>();
+            services.AddScoped<IOfferingRepository, OfferingRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 

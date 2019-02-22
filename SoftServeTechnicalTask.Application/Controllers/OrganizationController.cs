@@ -17,9 +17,8 @@ namespace SoftServeTechnicalTask.Application.Controllers
             _organizationRepository = organizationRepository;
         }
 
-        // ToDo: Add xml documentation to all controllers/actions
         /// <summary>
-        /// GetByIdAsync existing organization by Id
+        /// Get existing organization by Id
         /// </summary>
         /// <param name="organizationId">Id of organization which you want to get</param>
         /// <returns>Return organization model with all sub-items (countries, business, etc)</returns>
@@ -38,7 +37,7 @@ namespace SoftServeTechnicalTask.Application.Controllers
         /// Create new organization
         /// </summary>
         /// <param name="organization">Object of organization which you want to create</param>
-        /// <returns>Return the created organization</returns>
+        /// <returns>Return status code</returns>
         /// <response code="201">Successfully created</response>
         /// <response code="409">Organization with such name already exists</response>
         [HttpPost]

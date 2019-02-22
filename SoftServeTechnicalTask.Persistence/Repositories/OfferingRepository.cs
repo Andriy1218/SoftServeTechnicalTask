@@ -8,7 +8,7 @@ using SoftServeTechnicalTask.Persistence.Repositories.BuildingBlocks;
 
 namespace SoftServeTechnicalTask.Persistence.Repositories
 {
-    class OfferingRepository : GenericChildRepository<Offering>, IOfferingRepository
+    public class OfferingRepository : GenericChildRepository<Offering>, IOfferingRepository
     {
         public OfferingRepository(ApplicationContext context) : base(context)
         {
